@@ -89,6 +89,8 @@
             {%- case block.type -%}
               {%- when '@app' -%}
                 {% render block %}
+              {%- when 'reviews' -%}
+                {%- render 'reviews', block: block -%}
               {%- when 'text' -%}
                 <p
                   class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
@@ -662,6 +664,8 @@
                 </product-recommendations>
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
+              {%- when 'shipping_estimator' -%}
+                {% render 'shipping-estimator', block: block %}
             {%- endcase -%}
           {%- endfor -%}
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">
@@ -733,6 +737,104 @@
   "class": "section",
   "blocks": [
     {
+      "type": "reviews",
+      "name": "Reviews",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "display_stars",
+          "label": "Display star ratings",
+          "default": true
+        },
+        {
+          "type": "color",
+          "id": "star_color",
+          "default": "#ffcc00",
+          "label": "Stars color"
+        },
+        {
+          "type": "select",
+          "id": "avatar_alignment",
+          "options": [
+            {
+              "value": "top",
+              "label": "Top"
+            },
+            {
+              "value": "middle",
+              "label": "Middle"
+            }
+          ],
+          "label": "Avatar alignment",
+          "default": "top"
+        },
+        {
+          "type": "header",
+          "content": "Review #1"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "author_1",
+          "label": "Review #1 Author name",
+          "default": "<em>Author</em>"
+        },
+        {
+          "type": "richtext",
+          "id": "text_1",
+          "label": "Review #1 Text",
+          "default": "<p>Share positive thoughts and feedback from your customer.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Review #1 Author image"
+        },
+        {
+          "type": "header",
+          "content": "Review #2"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "author_2",
+          "label": "Review #2 Author name",
+          "default": "<em>Author</em>"
+        },
+        {
+          "type": "richtext",
+          "id": "text_2",
+          "label": "Review #2 Text",
+          "default": "<p>Share positive thoughts and feedback from your customer.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Review #2 Author image"
+        },
+        {
+          "type": "header",
+          "content": "Review #3"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "author_3",
+          "label": "Review #3 Author name",
+          "default": "<em>Author</em>"
+        },
+        {
+          "type": "richtext",
+          "id": "text_3",
+          "label": "Review #3 Text",
+          "default": "<p>Share positive thoughts and feedback from your customer.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Review #3 Author image"
+        }
+      ]
+    },
+    {
       "type": "@app"
     },
     {
@@ -771,6 +873,82 @@
       "type": "title",
       "name": "t:sections.main-product.blocks.title.name",
       "limit": 1
+    },
+    {
+      "type": "rating_stars",
+      "name": "Rating stars",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating",
+          "min": 1,
+          "max": 5,
+          "step": 0.1,
+          "default": 4.8
+        },
+        {
+          "type": "color",
+          "id": "star_color",
+          "default": "#ffcc00",
+          "label": "Filled star color"
+        },
+        {
+          "type": "color",
+          "id": "bg_star_color",
+          "default": "#ececec",
+          "label": "Empty star color"
+        },
+        {
+          "type": "select",
+          "id": "bg_stars_style",
+          "options": [
+            {
+              "value": "outlined",
+              "label": "Outlined"
+            },
+            {
+              "value": "full",
+              "label": "Full"
+            }
+          ],
+          "label": "Empty star fill style",
+          "default": "full"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "label",
+          "label": "Text",
+          "default": "(xxxx Reviews)"
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Alignment",
+          "options": [
+            {
+              "value": "flex-start",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "flex-end",
+              "label": "Right"
+            }
+          ],
+          "default": "flex-start"
+        },
+        {
+          "type": "text",
+          "id": "scroll_id",
+          "label": "ID of the section to scroll to",
+          "info": "On Chrome, right click and select 'Inspect' to find the ID of the section you want to scroll to. Paste it here with a # prefix. Example: #ReviewSection-123"
+        }
+      ]
     },
     {
       "type": "price",
@@ -1459,6 +1637,63 @@
           "id": "enable_quick_add",
           "label": "t:sections.main-product.blocks.complementary_products.settings.enable_quick_add.label",
           "default": false
+        }
+      ]
+    },
+    {
+      "name": "Shipping estimator",
+      "type": "shipping_estimator",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_icon",
+          "label": "Show shipping icon",
+          "default": true
+        },
+        {
+          "type": "number",
+          "id": "fulfilment_days",
+          "label": "Average days for fulfilment",
+          "default": 3
+        },
+        {
+          "type": "number",
+          "id": "shipping_days",
+          "label": "Average days for shipping",
+          "default": 5
+        },
+        {
+          "type": "number",
+          "id": "buffer_days",
+          "label": "Buffer days (for max estimate)",
+          "default": 2
+        },
+        {
+          "type": "text",
+          "id": "estimator_text",
+          "label": "Text",
+          "default": "Order today and receive in [days] days",
+          "info": "Use [days] to display the calculated delivery estimate"
+        },
+        {
+          "type": "select",
+          "id": "position",
+          "label": "Text position",
+          "default": "flex-start",
+          "options": [
+            {
+              "value": "flex-start",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "flex-end",
+              "label": "Right"
+            }
+          ]
         }
       ]
     },
