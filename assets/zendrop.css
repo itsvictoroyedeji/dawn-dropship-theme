@@ -1,3 +1,10 @@
+/*
+ * In Shopify Edit Code > layout/theme.liquid
+ * ctrl + f "base.css". Find the base.css line,
+ * then add: {{ 'zendrop.css' | asset_url | stylesheet_tag }}
+ * under base.css for this to work
+*/
+
 .product__title {
   margin-top: 1rem;
 }
