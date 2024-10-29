@@ -124,10 +124,23 @@
       </small>
     </div>
     {%- if show_badges -%}
-      <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
-        {{ 'products.product.on_sale' | t }}
-      </span>
-
+      {% liquid
+        if use_variant
+          assign target_variant = product.selected_or_first_available_variant
+        else
+          assign target_variant = product
+        endif
+    
+        assign sale_percent = target_variant.compare_at_price | minus: target_variant.price | times: 100.0 | divided_by: target_variant.compare_at_price | round
+      %}
+  
+      {% if target_variant.compare_at_price > target_variant.price %} 
+        <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
+          {{ 'products.product.on_sale' | t }}
+          {{ sale_percent }}%
+        </span>
+      {% endif %}
+      
       <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
         {{ 'products.product.sold_out' | t }}
       </span>
