@@ -43,11 +43,15 @@
   'FILL' 1
 }
 
+.header__menu-item:hover {
+  color: rgb(18, 18, 18, 0.9);
+}
+
 .product__title {
 margin-top: 1rem;
 }
 
-.slider-buttons {
+.product .slider-buttons {
 position: absolute;
 bottom: 0;
 left: 0;
