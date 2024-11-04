@@ -3,7 +3,12 @@
  * ctrl + f "base.css". Find the base.css line,
  * then add: {{ 'zendrop.css' | asset_url | stylesheet_tag }}
  * under base.css for this to work
-*/
+ *
+ * And to prevent videos from stopping after clicking 
+ * product variant: On assets/media-gallery.js, comment this
+ * line:
+ * window.pauseAllMedia();
+ */
 
 @font-face {
   font-family: 'Material Symbols Outlined';
