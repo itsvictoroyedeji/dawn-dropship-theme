@@ -175,6 +175,12 @@ margin-top: 0.5rem;
 font-size: calc(var(--font-heading-scale) * 1.45rem);
 margin-bottom: 1rem;
 }
+@media screen and (max-width: 989px) {
+  .multicolumn .page-width {
+      padding-left: 1em !important;
+      padding-right: 1em !important;
+  }
+}
 .testimonial-card--has-author .multicolumn-card__info {
 padding-bottom: 1.25rem;
 }
@@ -207,11 +213,11 @@ padding: 3px 7px;
 }
 
 .header__menu-item span.header__active-menu-item {
-background: rgb(var(--color-background));
-color: rgb(var(--color-foreground));
-border-radius: 5px;
-text-decoration: none;
-font-weight: bold;
+  background: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .content-and-comparison-table {
@@ -1823,4 +1829,17 @@ display: none !important;
 
 .shopify-section.section-header.shopify-section-header-sticky {
 z-index: 999;
+}
+
+.banner__box .banner__text {
+  color: rgba(var(--color-foreground), 0.85);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+@media (max-width: 500px) {
+  .banner__box .banner__text {
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }
