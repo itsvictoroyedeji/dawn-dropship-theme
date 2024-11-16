@@ -36,7 +36,7 @@ In all, simply [download our Dropship theme's zip file][2], and you're ready to 
 
 [1]: https://www.freedomdropshipping.com/products/dropship-in-21-days
 [2]: https://drive.google.com/file/d/1xxYpRiZjFTcjRQG_odEJooOQ23eRf5pL/view?usp=drive_link
-[3]: ../../shopify-sections/blob/main/sections/flickity-ugc-slider.liquid
-[4]: ../../shopify-sections/blob/main/sections/gallery-tabs.liquid
-[5]: ../../shopify-sections/blob/main/sections/video.liquid
-[6]: ../../shopify-sections
+[3]: ../../../shopify-sections/blob/main/sections/flickity-ugc-slider.liquid
+[4]: ../../../shopify-sections/blob/main/sections/gallery-tabs.liquid
+[5]: ../../../shopify-sections/blob/main/sections/video.liquid
+[6]: ../../../shopify-sections
