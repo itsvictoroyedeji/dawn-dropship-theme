@@ -18,7 +18,7 @@ And that's it.
 * This theme adds to the free `Dawn` theme Shopify provides, including these new custom sections:
     * `as-seen-on-logos.liquid`
     * `flickity-ugc-slider.liquid` ([source][3])
-    * `gallery-tabs` ([source][4])
+    * `gallery-tabs.liquid` ([source][4])
     * `image-slider.liquid`
     * `testimonials.liquid`
     * `video.liquid` (upgraded [source][5])
