@@ -27,6 +27,8 @@ And that's it.
     * `zendrop.css`
     * `powerups.css`
     * `powerups-mobile.css`
+    * `flickity.css`
+    * `flickity.pkgd.min.js`
 
 There are a few others, but the ones mentioned are the main ones.
 
