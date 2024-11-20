@@ -10,7 +10,7 @@
  * window.pauseAllMedia();
  */
 
-@font-face {
+ @font-face {
   font-family: 'Material Symbols Outlined';
   src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v141/kJF4BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzBwG-RpA6RzaxHMPdY40KH8nGzv3fzfVJU22ZZLsYEpzC_1qmr5Y0.woff2) format('woff2');
   font-style: normal;
@@ -1841,5 +1841,74 @@ z-index: 999;
   .banner__box .banner__text {
     font-size: 16px;
     line-height: 1.5;
+  }
+}
+
+/* Change button on product sliders and update product pic's radius */
+
+.slider-counter.caption {
+    display: none;
+}
+
+button.slider-button.slider-button--prev, .cstm-collection-list button.flickity-button.flickity-prev-next-button.previous {
+    transform: scale(-1) !important;
+}
+
+button.slider-button.slider-button--prev, button.slider-button.slider-button--next, .cstm-collection-list button.flickity-button.flickity-prev-next-button.previous, .cstm-collection-list button.flickity-button.flickity-prev-next-button.next {
+    background-image: url(https://cdn.shopify.com/s/files/1/0634/6185/1214/files/right-arrow-svgrepo.svg?v=1731910338);
+    background-repeat: no-repeat;
+    background-size: 27px;
+    background-position: center;
+    color: transparent!important;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(1);
+}
+
+button.slider-button span {
+    display: none;
+}
+
+.slider-button {
+    width: 20px!important;
+    height: 20px!important;
+}
+
+.thumbnail[aria-current] {
+    border: 2px solid rgba(132,132,132,1);
+}
+
+.thumbnail {
+    border-radius: 17px;
+    box-shadow: unset!important;
+}
+
+.product__media img, .product-media-container {
+    border-radius: 30px;
+}
+
+@media (max-width: 1300px) {
+  .product-main-class {
+    padding: 50px;
+  }
+}
+
+@media (max-width: 992px) {
+  .product-main-class {
+    padding: 26px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+.thumbnail-list__item.slider__slide {
+    width: calc(15% - .6rem)!important;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .thumbnail-list__item.slider__slide {
+      width: calc(25% - .6rem)!important;
   }
 }
