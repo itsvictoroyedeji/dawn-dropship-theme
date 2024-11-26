@@ -1,0 +1,390 @@
+<div class="hdt-product__item">
+
+<style>
+  
+  .bra-size-container {
+    max-width: 503px;
+    border: 1px solid #d68994;
+    padding: 20px;
+    color: #404040;
+    font-family: var(--font-body-family);
+    font-size: inherit;
+    font-style: normal;
+    font-weight: 400;
+    line-height: inherit;
+    background-color: #fff3f5;
+  }
+
+  .bra-body {
+    display: flex;
+    flex-direction: column;
+    letter-spacing: inherit;
+    gap: 10px;
+  }
+
+  .hideShowCall {
+    display: none;
+  }
+
+  .bh-item-bell {
+    width: 25px;
+  }
+
+  .bh-item-bell img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .bra-size-container a {
+    text-decoration: underline !important;
+    font-weight: 600;
+    color: #404040;
+    font-size: 11px;
+    text-transform: math-auto;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .bra-size-container p {
+    font-size: 12px;
+  }
+
+  .bra-header {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .bra-header p {
+    font-size: 12px !important;
+  }
+
+  .bh-item-know {
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 10px;
+    margin: 0 15px 0 40px;
+    position: relative;
+  }
+
+  .bh-item-know::before {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: url(https://cdn.shopify.com/s/files/1/0634/6185/1214/files/info_icon_3b.png?v=1732439468) no-repeat;
+    left: -40px;
+    background-size: contain;
+  }
+
+  .bh-item-know::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 12px solid #f7e7ce;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .bh-item-know span {
+    font-weight: 600;
+    /* font-size: 1.4rem; */
+  }
+
+  .bh-item-know mark {
+    background-color: #f7e7ce;
+    padding: 5px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;    
+  }
+
+  .bh-text {
+    margin-top: 15px;
+    font-size: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .calc-wrapper {
+    display: flex;
+    gap: 10px;
+  }
+
+  .calc-wrapper-item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .calc-wrapper-item select {
+    width: 100%;
+    height: 35px;
+    border-radius: 12px;
+    padding: 0 30px;
+    border: 1px solid #797979 !important;
+    font-family: var(--font-body-family) !important;
+    font-size: 14px !important;
+    font-weight: 500;
+    color: #797979 !important;
+    background-color: #fff3f5;
+  }
+
+
+  .anthea-size-wrapper {
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 100%;
+    height: 35px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 auto;
+  }
+
+  .band-label,
+  .cup-label,
+  .result-label {
+    margin-left: 10px;
+    font-size: 14px !important;
+    font-weight: 500;
+    color: #343232 !important;
+  }
+
+  .band-label,
+  .cup-label {
+    text-transform: capitalize !important;
+    font-size: 14px !important;
+    font-family: var(--font-body-family) !important;
+  }
+
+  .result-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #anthea-size {
+    font-size: inherit;
+  }
+
+  .na {
+    display: none !important;
+  }
+
+  .active .fa-chevron-down {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .fa-chevron-down {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  #showHide {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    color: #797979;
+  }
+
+  @media only screen and (max-width:500px) {
+    .calc-wrapper-item select {
+      padding: 2px auto 2px 10px;
+    }
+  }
+
+  .showcalcu {
+    display: block !important;
+  }
+
+  select {
+    cursor: pointer;
+  }
+</style>
+
+
+<!-- Bra Size Calculator -->
+
+  <div class="bra-size-container">
+    <div class="bra-header">
+      <div class="bh-item-know">
+        <span><mark>Pick your correct size before buying!</mark></span>
+      </div>
+      <i class="fa fa-chevron-down" id="showHide"></i>
+    </div>
+    <div class="bh-text">Unsure of your bra size? Select your band and cup size below to get your Anthea size!</div>
+    <div class="hideShowCall showcalcu">
+      <div class="bra-body">
+        <div class="calc-wrapper">
+          <div class="calc-wrapper-item test">
+            <label for="bandSize" class="band-label">Your Band Size</label>
+            <select id="bandSize" name="bandSize">
+              <option value="" disabled="" selected="">Select Size</option>
+                <option value="28">28</option>
+                <option value="30">30</option>              
+                <option value="32">32</option>              
+                <option value="34">34</option>              
+                <option value="36">36</option>              
+                <option value="38">38</option>              
+                <option value="40">40</option>              
+                <option value="42">42</option>
+            </select>
+          </div>
+          <div class="calc-wrapper-item">
+            <label for="cupSize" class="cup-label">Your Cup Size</label>
+            <select id="cupSize" name="cupSize" disabled="">
+              <option value="" disabled="" selected="">Select Size</option>
+                <option value="A">A</option>        
+                <option value="B">B</option>           
+                <option value="C">C</option>           
+                <option value="D">D</option>           
+                <option value="DD/E">DD/E</option>              
+                <option value="DDD/F">DDD/F</option>          
+                <option value="G">G</option>          
+            </select>
+          </div>
+        </div>
+        <div class="result-wrapper">
+          <div>
+            <span class="result-label">Anthea Size</span></div>
+          <div class="anthea-size-wrapper">
+            <span id="anthea-size"></span>
+          </div>
+        </div>
+        <p style="color:#404040">
+          Don't see your band or cup size? We have more sizes coming soon. Join our VIP list (at the bottom of this page) to stay updated.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  // Display/Hide Bra Size Calculator
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('.bra-header #showHide').addEventListener('click', function () {
+      document.querySelector('.hideShowCall').classList.toggle('showcalcu');
+    });
+  });
+
+  const bandSize = document.querySelector('#bandSize');
+  const cupSize = document.querySelector('#cupSize');
+  const antheaSize = document.querySelector('#anthea-size');
+  const sizeWrap = document.querySelector('.calc-wrapper');
+
+  let setCountry = 'US'; // Set Country
+  let cupSizes1, cupSizes2, cupSizes3, cupSizes4, cupSizes5, cupSizes6, cupSizes7, bandSizes1, bandSizes2, bandSizes3, bandSizes4;
+
+
+  if (setCountry === 'US') {
+    cupSizes1 = ["A", "B", "C", "D", "DD/E", "DDD/F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P"];
+    cupSizes2 = ["AA", "A", "B", "C", "D", "DD/E", "DDD/F", "G", "H", "I", "J", "K", "L", "M"];
+    cupSizes3 = ["A", "B", "C", "D", "DD/E", "DDD/F", "G", "H", "I"];
+    cupSizes4 = ["A", "B", "C", "D", "DD/E", "DDD/F", "G", "H", "I", "J", "K", "L"];
+    cupSizes5 = ["A", "B", "C", "D", "DD/E", "DDD/F"];
+    cupSizes6 = ["A", "B", "C", "D", "DD/E", "DDD/F", "G"];
+    cupSizes7 = ["A", "B", "C", "D", "DD/E", "DDD/F", "G", "H", "I", "J", "K"];
+    bandSizes1 = ["28", "30", "32", "34", "36", "38", "40", "42", "44"];
+    bandSizes2 = ["26", "28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48", "50"];
+    bandSizes3 = ["28", "30", "32", "34", "36", "38"];
+    bandSizes4 = ["28", "30", "32", "34", "36", "38", "40"];
+  }
+
+  // <!-- The Anthea Sizes -->
+  let antheaSize1 = ["AA", "AA", "AA", "A", "B", "C", "D", "D", "Not available"];
+  let antheaSize2 = ["AA", "AA", "AA", "A", "B", "C", "D", "D", "Not available", "G", "H", "I"];
+  let antheaSize3 = ["S", "S", "S", "S", "S", "M", "L", "XL", "2XL", "2XL", "2XL", "2XL", "2XL"];
+  let antheaSize3Case1 = ["S", "S", "S", "S", "M", "M", "L", "XL", "2XL", "2XL", "2XL", "2XL", "2XL"];
+  let antheaSize3Case2 = ["S", "S", "S", "M", "M", "L", "L", "XL", "2XL", "2XL", "2XL", "2XL", "2XL"];
+  let antheaSize3Case3 = ["S", "S", "M", "M", "L", "L", "XL", "XL", "2XL", "2XL", "2XL", "2XL", "2XL"];
+  let antheaSize4 = ["A/B", "A/B", "A/B", "A/B", "A/B", "C/D", "DD/E/F", "DD/E/F", "DD/E/F", "G/H"];
+  let antheaSize4Case1 = ["A/B", "A/B", "A/B", "A/B", "C/D", "C/D", "DD/E/F", "DD/E/F", "G/H"];
+  let antheaSize5 = ["AA", "AA", "AA", "A", "B", "C", "D", "D", "Not available", "G", "H", "I", "J", "K", "L", "M"];
+  let antheaSize6 = ["AA", "AA", "AA", "A", "B", "C", "D", "D", "Not available", "G", "H", "I"];
+  let antheaSize7 = ["small", "small", "small", "small", "small", "small"];
+  let antheaSize8 = ["A", "A", "A", "A", "B", "C", "D"];
+  let antheaSize9 = ["AA", "AA", "AA", "A", "B", "C", "D", "D", "Not available", "G", "H"];
+  let antheaSize10 = ["AA", "AA", "AA", "A", "B", "C", "D", "D", "Not available"];
+
+
+  sizeWrap.addEventListener('change', () => {
+
+    if (bandSize.value !== "") {
+      cupSize.disabled = false;
+         console.log('testing');
+     
+      // Enable all cup size options
+      Array.from(cupSize.options).forEach(option => option.disabled = false);
+
+      // Mapping of band sizes to the number of options to disable
+      const disableMap1 = { "44": 8, "42": 7, "40": 5, "38": 4, "36": 3, "34": 2, "32": 1, "30": 0, "28": 0 };
+      const disableMap2 = { "50": 11, "48": 10, "46": 9, "44": 8, "42": 7, "40": 6, "38": 4, "36": 2, "34": 0, "32": 0, "30": 0, "28": 0, "26": 0 };
+      const disableMap3 = { "38": 5, "36": 4, "34": 3, "32": 2, "30": 1, "28": 0 };
+      const disableMap4 = { "40": 6, "38": 5, "36": 4, "34": 3, "32": 2, "30": 1, "28": 0 };
+
+      // Get the number of options to disable based on the selected band size
+      const optionsToDisable1 = disableMap1[bandSize.value];
+      const optionsToDisable2 = disableMap2[bandSize.value];
+      const optionsToDisable3 = disableMap3[bandSize.value];
+      const optionsToDisable4 = disableMap4[bandSize.value];
+
+      if (optionsToDisable1 !== undefined || optionsToDisable2 !== undefined) {
+        console.log('testing again');
+        
+          for (let i = cupSize.options.length - 1; i >= cupSize.options.length - optionsToDisable1; i--) {
+            cupSize.options[i].disabled = true;
+          }
+        
+      }
+
+
+      if (bandSize.value !== "" && cupSize.value !== "") {
+        // console.log("bandsize: " + bandSize.value);
+        // console.log("cupsize: " + cupSize.value);
+        // console.log("Position Brallete indexOf: " + cupSizes2.indexOf(cupSize.value));
+        // console.log("Position indexOf: " + cupSizes1.indexOf(cupSize.value));
+
+        let bandIndex1 = bandSizes1.indexOf(bandSize.value);
+        let bandIndex2 = bandSizes2.indexOf(bandSize.value);
+        let bandIndex3 = bandSizes3.indexOf(bandSize.value);
+        let bandIndex4 = bandSizes4.indexOf(bandSize.value);
+
+        if (bandIndex1 !== -1 || bandIndex2 !== -1 || bandIndex3 !== -1 || bandIndex4 !== -1) {
+          
+            let cupIndex = cupSizes3.indexOf(cupSize.value);
+          
+
+          if (cupIndex !== -1) {
+            let result;
+
+              console.log('test1');
+              result = antheaSize1[cupIndex + bandIndex1];
+            
+            // alert('teszst');
+            // console.log("boombaSize: " + boombaSize2[cupIndex + bandIndex1]);
+            // console.log("boombaSize: " + boombaSize5[cupIndex + bandIndex1]);
+            // console.log("result: " + result);
+            
+            antheaSize.innerHTML = result !== undefined ? result : "Not available";
+            console.log("result: " + result);
+          } else {
+            antheaSize.innerHTML = "Not available";
+          }
+        }
+      };
+    };
+  });
+</script>

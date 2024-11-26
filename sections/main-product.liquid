@@ -37,6 +37,7 @@
         padding-bottom: {{ section.settings.padding_bottom }}px;
       }
     }
+
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
@@ -109,6 +110,8 @@
                 </div>
               {% when 'rating_stars' %}
                 {% render 'rating-stars-block', block: block, margins: true, block_attributes: true %}
+              {% when 'bra_size' %}
+                {% render 'bra-size-picker', block: block, margins: true, block_attributes: true %}
               {%- when 'price' -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                   {%- render 'price',
@@ -949,6 +952,11 @@
           "info": "On Chrome, right click and select 'Inspect' to find the ID of the section you want to scroll to. Paste it here with a # prefix. Example: #ReviewSection-123"
         }
       ]
+    },
+    {
+      "type": "bra_size",
+      "name": "Bra Size Picker",
+      "limit": 1
     },
     {
       "type": "price",

@@ -37,7 +37,7 @@ In all, simply [download our Dropship theme's zip file][2], and you're ready to 
 > Final note: If you want even more custom sections, like a categorized picture gallery, or a video when people first view your homepage, [check out our custom power-ups][6] you can add after getting some sales.
 
 [1]: https://www.freedomdropshipping.com/products/dropship-in-21-days
-[2]: https://drive.google.com/file/d/1aof7HIUb9hTqL2cgSrGqleoGgrooDm2a/view?usp=drive_link
+[2]: https://drive.google.com/file/d/1qsFTKWkn2eW_9I_UAOyQdBDHQHTYWr4i/view?usp=drive_link
 [3]: ../../../shopify-store-powerups/blob/main/sections/flickity-ugc-slider.liquid
 [4]: ../../../shopify-store-powerups/blob/main/sections/gallery-tabs.liquid
 [5]: ../../../shopify-store-powerups/blob/main/sections/video.liquid
